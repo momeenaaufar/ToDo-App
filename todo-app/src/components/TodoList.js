@@ -1,43 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import './TodoList.css';
+import React, { useState, useEffect } from 'react'; // Import React and necessary hooks
+import Modal from 'react-modal'; // Import the Modal component from react-modal for displaying the filtered todos
+import './TodoList.css'; // Import CSS for styling the TodoList component
 
 const TodoList = ({ todos, onDelete, onUpdate }) => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filteredTodos, setFilteredTodos] = useState([]);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState(''); // State to track the search input
+    const [filteredTodos, setFilteredTodos] = useState([]); // State to store the filtered todos
+    const [modalIsOpen, setModalIsOpen] = useState(false); // State to control the modal visibility
 
+    // Set the app element for accessibility with Modal
     useEffect(() => {
         Modal.setAppElement('body');
     }, []);
 
+    // Function to handle the search functionality
     const handleSearch = () => {
         if (searchTerm.trim() === '') {
-            return;
+            return; // Do nothing if search term is empty
         }
-    
+        
+        // Filter todos based on search term matching title, category, status, or priority
         const filtered = todos.filter(todo =>
             todo.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             todo.category.toLowerCase().includes(searchTerm.toLowerCase()) || 
             todo.status.toLowerCase().includes(searchTerm.toLowerCase()) || 
             todo.priority.toLowerCase().includes(searchTerm.toLowerCase())
         );
+        
+        // Sort filtered todos by date and reverse the order
         filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
-
         filtered.reverse();
         
-        setFilteredTodos(filtered);
-        setModalIsOpen(true);
+        setFilteredTodos(filtered); // Update state with filtered todos
+        setModalIsOpen(true); // Open the modal to display filtered todos
     };
 
+    // Function to handle changes in the search input field
     const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
+        setSearchTerm(e.target.value); // Update the search term state
     };
 
+    // Function to close the modal
     const closeModal = () => {
-        setModalIsOpen(false);
+        setModalIsOpen(false); // Set modal visibility to false
     };
-
 
     return (
         <div className="todo-list">
@@ -46,23 +51,24 @@ const TodoList = ({ todos, onDelete, onUpdate }) => {
                 <div className="search-container">
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Search title..."
                         value={searchTerm}
-                        onChange={handleInputChange}
+                        onChange={handleInputChange} // Update the search term as the user types
                     />
-                    <button id='srch-btn' onClick={handleSearch}>Search</button>
+                    <button id='srch-btn' onClick={handleSearch}>Search</button> {/* Trigger search on button click */}
                 </div>
             </div>
 
+            {/* Modal to display the filtered todos */}
             <Modal
                 isOpen={modalIsOpen}
-                onRequestClose={closeModal}
+                onRequestClose={closeModal} // Close modal when clicking outside or pressing escape
                 contentLabel="Filtered Todos Modal"
-                className="modal2"
-                overlayClassName="overlay"
+                className="modal2" // Custom CSS class for modal content
+                overlayClassName="overlay" // Custom CSS class for modal overlay
             >
                 <div className="modal-content2">
-                    <span className="close-icon2" onClick={closeModal}>×</span>
+                    <span className="close-icon2" onClick={closeModal}>×</span> {/* Close modal button */}
                     <h2>Filtered Todos</h2>
                     {filteredTodos.map(todo => (
                         <div key={todo._id} className="todo-items2">
@@ -77,6 +83,7 @@ const TodoList = ({ todos, onDelete, onUpdate }) => {
                 </div>
             </Modal>
 
+            {/* Display all todos */}
             {[...todos].reverse().map(todo => (
                 <div key={todo._id} className="todo-item">
                     <div className='date-title'>
@@ -92,8 +99,8 @@ const TodoList = ({ todos, onDelete, onUpdate }) => {
                     </div>
 
                     <div className='buttons'>
-                        <button id= "dlt-btn" onClick={() => onDelete(todo._id)}>Delete</button>
-                        <button onClick={() => onUpdate(todo._id)}>Update</button>
+                        <button id="dlt-btn" onClick={() => onDelete(todo._id)}>Delete</button> {/* Delete button */}
+                        <button onClick={() => onUpdate(todo._id)}>Update</button> {/* Update button */}
                     </div>
                 </div>
             ))}

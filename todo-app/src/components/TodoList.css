@@ -9,17 +9,15 @@
 
 .todo-list h1 {
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .todo-item {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     padding: 10px;
-    border-radius: 8px;
-    background-image: url('./e2.jpg');
+    border-radius: 30px;
     border: 2px solid rgb(101, 98, 98);
-    border-radius: 10px;
     
 }
 
@@ -44,7 +42,7 @@
     margin-left: 10px;
     padding: 5px 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
@@ -63,7 +61,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fefefe;
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -72,7 +69,7 @@
     width: 250px;
     padding: 8px;
     border: 1px solid #c7c7c7;
-    border-radius: 5px;
+    border-radius: 30px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s ease;
@@ -95,7 +92,7 @@
     color: #fff;
     background-color: #28a745;
     border: 2px solid #28a745;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
 }
 .modal2 {
@@ -135,7 +132,7 @@
 .modal-content2 {
     background-color: #fefefe;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 30px;
     max-width: 500px; 
     width: 100%;
     text-align: left;
@@ -143,7 +140,7 @@
 }
 
 .modal-content2 h2 {
-    color: black;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -151,12 +148,11 @@
 .todo-items2 {
     margin-bottom: 20px;
     padding: 10px;
-    background-image: url('./e2.jpg');
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .todo-items2 h3 {
-    color: #ffffff;
+    color: white;
 }
 
 .close-icon2 {
@@ -165,6 +161,9 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+}
+h3{
+    color:white;
 }
 
 @media only screen and (max-width: 768px) {

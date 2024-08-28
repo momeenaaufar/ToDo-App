@@ -43,12 +43,12 @@ npx create-react-app my-react-app
 ## Run The Project
 
 - First and foremost, confirm that the MongoDB server connection is enabled.
-- Navigate to the front end folder and type the following command in the command prompt.
+- Navigate to the front end folder(todo-app) and type the following command in the command prompt.
 ```bash
 npm start
 ```
 
-- Navigate to the back end folder and type the following command in the command prompt.
+- Navigate to the back end folder(todo-server) and type the following command in the command prompt.
 ```bash
 node <filename.js>
 ```

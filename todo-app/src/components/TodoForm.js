@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import './Form.css';
-
+import './Form.css'; // Import CSS for styling the form
 
 const TodoForm = ({ onAdd }) => {
+    // State hooks to manage form input values
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [completed, setCompleted] = useState(false);
     const [priority, setPriority] = useState('Low');
     const [category, setCategory] = useState('Work');
 
+    // Handler for adding a new todo
     const handleAdd = () => {
+        // Check if title and description are provided
         if (!title || !description) {
             alert('Please enter a title and description.'); 
             return;
         }
 
-
+        // Call the onAdd function passed as a prop with the form data
         onAdd(title, description, completed, priority, category);
+
+        // Reset form fields to initial state
         setTitle('');
         setDescription('');
         setCompleted(false);
@@ -24,6 +28,7 @@ const TodoForm = ({ onAdd }) => {
         setCategory('Work');
     };
 
+    // Handler for clearing the form fields
     const handleClear = () => {
         setTitle('');
         setDescription('');
@@ -36,6 +41,7 @@ const TodoForm = ({ onAdd }) => {
         <div className='main-form'>
             <h2>Add New Todo</h2>
             <div className='input-titles'>
+                {/* Input for title */}
                 <input
                     type="text"
                     value={title}
@@ -43,6 +49,7 @@ const TodoForm = ({ onAdd }) => {
                     placeholder="Title"
                     required 
                 />
+                {/* Input for description */}
                 <input
                     type="text"
                     value={description}
@@ -51,8 +58,8 @@ const TodoForm = ({ onAdd }) => {
                 />
             </div>
 
-
             <div className='input-more'>
+                {/* Checkbox for marking the task as completed */}
                 <div className='input-completed'>
                     <label>
                         <input
@@ -63,6 +70,8 @@ const TodoForm = ({ onAdd }) => {
                         Mark task as completed
                     </label>
                 </div>
+                
+                {/* Dropdown for selecting category */}
                 <div className='input-category'>
                     <label>
                         Category:
@@ -75,6 +84,7 @@ const TodoForm = ({ onAdd }) => {
                 </div>
             </div>
 
+            {/* Radio buttons for selecting priority */}
             <div className='input-priority'>
                 <label>Priority:</label>
                 <label>
@@ -105,7 +115,9 @@ const TodoForm = ({ onAdd }) => {
                     High
                 </label>
             </div>
+
             <div className='form-btn'>
+                {/* Buttons for adding and clearing the form */}
                 <button onClick={handleAdd}>Add Todo</button>
                 <button id='cl-btn' onClick={handleClear}>Clear</button>
             </div>

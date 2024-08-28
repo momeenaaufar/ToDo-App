@@ -1,18 +1,17 @@
 .main-form {
     width: 400px;
-    margin: 0 auto;
     text-align: center;
     background-color: transparent;
-    border: 2px solid rgb(101, 98, 98);
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 20px;
     margin-top: 10px;
-    margin-left: 30px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+    backdrop-filter:blur(20px);
+    border: 1px solid rgb(17, 17, 17);
 }
 
 .main-form h2 {
-    color: white;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -37,10 +36,12 @@
     margin-bottom: 15px;
     padding: 8px;
     border: 1px solid #000000;
-    border-radius: 5px;
+    background-color: transparent;
+    border-radius: 30px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s ease;
+    border: 1px solid rgb(24, 23, 23);
 }
 
 .input-titles input:focus {
@@ -50,7 +51,8 @@
 
 .input-completed label {
     display: inline-block;
-    color: #ffffff;
+    color: black;
+    
 }
 
 .input-completed input[type="checkbox"] {
@@ -59,7 +61,7 @@
 }
 
 .input-category label{
-    color: #ffffff;
+    color: black;
 }
 
 .input-category select {
@@ -67,8 +69,8 @@
     font-size: 16px; 
     margin-left: 10px;
     border: 1px solid #000000; 
-    border-radius: 4px; 
-    background-color: #fff; 
+    border-radius: 30px; 
+    background-color:transparent; 
     color: #000000; 
     outline: none; 
     transition: border-color 0.3s; 
@@ -78,6 +80,7 @@
     display: flex;
     align-items: flex-start;
     margin-left: 20px;
+    
 }
 
 label{
@@ -85,7 +88,7 @@ label{
 }
 
 .input-priority label {
-    color: #fff;
+    color: #000000;
 }
 
 .input-priority input[type="radio"] {
@@ -110,13 +113,14 @@ label{
     color: #fff;
     background-color: #007bff;
     border: 2px solid #007bff;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 #cl-btn {
-    background-color: #28a745;
-    border: 2px solid #28a745;
+    background-color: #c9915d;
+    border: 2px solid #c9915d;
 }
 
 
@@ -126,7 +130,6 @@ label{
         margin: 0 auto;
         margin-top: 20px;
         margin-right: 15px;
-        background-color: #404040;
     }
 
     .input-titles input {
